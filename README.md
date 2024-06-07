@@ -42,6 +42,8 @@ It would be impossible to know what to do if we didn't have the exact same situa
 
 I will show one of these types of clients:
 
+![Client Metrics](https://github.com/yanteixeira/forecast_ads_clicks/blob/main/Client_metrics.png?raw=true)
+
 
 We can see that the days leading to inactivity are marked by a constant decrease in the metric features. Also, when the client decides to return to the platform, there is no "adaptation" period. The metrics, instead, behave as if the inactivity never happened.
 
@@ -55,6 +57,8 @@ For the active clients, I realized it was important to maintain their historical
 For the inactive clients, the descriptive ad features are forecasted using a moving average, and the metric features use a decreasing rate. We apply different decreasing rates for Inactives_2023 and Inactives_2024 because the inactive group of 2024 shows higher metrics at the beginning of the year, so consequently, they will also take a longer time to decrease.
 
 After the script is run, I concatenate all the groups to form my final dataframe. The final data transformation updates the last recorded dates for the "gap IDs" clients.
+
+![Diagram](https://github.com/yanteixeira/forecast_ads_clicks/blob/main/flow.png?raw=true)
 
 
 Finally, a CatBoost regressor is trained on the entire dataset and then used to make the predictions.
